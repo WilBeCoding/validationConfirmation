@@ -1,0 +1,16 @@
+extends layout
+
+block content
+  h1 Students
+  table
+      th
+        tr Name
+        tr Telephone
+      for data in student
+        tr
+          td
+            a(href='/users/'+ data._id)=data.student
+          td
+          td=data.telephoneNumber
+    div
+      a(href='/users/dashboard') Return To To The Dashboard

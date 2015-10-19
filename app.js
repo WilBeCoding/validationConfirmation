@@ -5,6 +5,8 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var cookieSession = require('cookie-session')
 var bodyParser = require('body-parser');
+require('dotenv').load();
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -23,7 +25,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cookieSession({
   name: 'session',
-  keys: ['key1', 'key2']
+  keys: [process.env.HASH_KEY1, process.env.HASH_KEY2, process.env.HASH_KEY3]
 }))
 app.use(express.static(path.join(__dirname, 'public')));
 

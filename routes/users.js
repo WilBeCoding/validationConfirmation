@@ -81,12 +81,33 @@ router.post('/signup', function(req,res,next) {
 
 router.post('/addstudent', function(req,res,next) {
   var errors = [];
-  if(!req.body.student_name.time()) {
+  if(!req.body.student_name.length === 0) {
     errors.push("Student must have a name");
   }
   if(req.body.student_telephone_number.length < 7) {
     errors.push("Not a valid telephone number");
   }
-  
+  if(errors.length === 0) {
+    assessmentCollection.insert({student:req.body.student_name, telephoneNumber:req.body.student_telephone_number}, function(err, data) {
+    });
+    res.redirect('show')
+  }
+  res.render('index', {errors:errors})
+})
+
+router.get('/show', function(req,res,next){
+  assessmentCollection.find({}, function(err, data) {
+  res.render('show', {student: data})    
+  })
+})
+
+router.get('/:id', function(req,res,next) {
+  // console.log("this shit hits")
+  assessmentCollection.findOne({_id: req.params.id}, function(err, student) {
+    // console.log(student);
+    res.render('display', {student:student})
+  })
+})
+
 
 module.exports = router;
