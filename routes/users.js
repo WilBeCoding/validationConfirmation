@@ -1,7 +1,7 @@
 var express = require('express');
 var bcrypt = require('bcrypt');
 var router = express.Router();
-var db = require('monk')('localhost/validationAssessment' || process.env.MONGOLAB_URI);
+var db = require('monk')(process.env.MONGOLAB_URI || 'localhost/validationAssessment');
 var assessmentCollection = db.get('assessment');
 
 /* GET users listing. */
