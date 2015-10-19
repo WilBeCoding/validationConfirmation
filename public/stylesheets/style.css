@@ -6,3 +6,25 @@ body {
 a {
   color: #00B7FF;
 }
+
+.signIn {
+  text-align: center;
+  margin-top: -200px;
+}
+
+.cats{
+  padding: 100px;
+  text-align: center;
+}
+
+.addStudent {
+  text-align: center;
+}
+
+.title{
+  text-align: center;
+}
+
+/*a{
+  text-align: center;
+}*/

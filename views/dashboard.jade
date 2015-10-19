@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  h1.title Welcome to the Dashboard
+  a(href='/users/logout') Logout
+  div.addStudent
+    form(action='/users/addstudent' method='post')
+      div
+        h1 Add a student to the database! ;)
+      div
+        label Name
+      input(type='text' name='student_name')
+      div
+        label Telephone Number
+      input(type='text' name='student_telephone_number')
+      div
+        input(type='submit')
+  div.cats
+    img(src='https://33.media.tumblr.com/140e90903050d378b5fef5809ae0d575/tumblr_nqkwz6YQOs1qzd4nho1_250.gif')

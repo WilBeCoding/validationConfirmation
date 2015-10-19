@@ -1,5 +1,30 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  if errors
+    for messages in errors
+      p=messages
+  h1 Sign Up
+  form(action="/users/signup" method='post')
+    div
+      label Email
+    input(type='text' name='user_email')
+    div
+      label Password
+    input(type='password' name='user_password')
+    div
+      label Password Confirmation
+    input(type='password' name='user_password_confirmation')
+    div
+      input(type='submit')
+  div.signIn
+    h1 Sign In
+    form(action='/users/signin' method='post')
+      div
+        label Email
+      input(type='text' name='user_email')
+      div
+        label Password
+      input(type='password' name='user_password')
+      div
+        input(type='submit')
