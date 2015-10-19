@@ -92,7 +92,7 @@ router.post('/addstudent', function(req,res,next) {
     });
     res.redirect('show')
   }
-  res.render('index', {errors:errors})
+  res.render('dashboard', {errors:errors})
 })
 
 router.get('/show', function(req,res,next){

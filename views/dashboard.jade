@@ -3,6 +3,9 @@ extends layout
 block content
   h1.title Welcome to the Dashboard
   a(href='/users/logout') Logout
+  if errors
+    for messages in errors
+      p=messages
   div.addStudent
     form(action='/users/addstudent' method='post')
       div
